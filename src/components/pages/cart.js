@@ -3,7 +3,7 @@ import React from 'react';
 // when it is a smart component
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { Panel, Row, Col, Button, ButtonGroup, Label } from 'react-bootstrap';
+import { Modal, Panel, Row, Col, Button, ButtonGroup, Label } from 'react-bootstrap';
 import { deleteCartItem, updateCart } from '../../actions/cartActions';
 
 class Cart extends React.Component {
@@ -16,6 +16,21 @@ class Cart extends React.Component {
       this.props.updateCart(_id, -1);
     }
   }
+  constructor(){
+    super();
+    this.state = {
+      showModal: false,
+    };
+  }
+
+  open() {
+    this.setState({showModal: true});
+  }
+
+  close() {
+    this.setState({showModal: false});
+  }
+
   onDelete(_id){
     // Creating a copy of the current cart array
     const currentCartToDelete = this.props.cart;
@@ -73,12 +88,27 @@ class Cart extends React.Component {
         {cartItemList}
         <Row>
           <Col xs={12}>
-            <h6>Total amount:</h6>
-            <Button bsStyle="success" bsSize="small">
+            <h6>Total amount: ${this.props.totalAmount}</h6>
+            <Button bsStyle="success" bsSize="small" onClick={this.open.bind(this)}>
               PROCEED TO CHECKOUT
             </Button>
           </Col>
         </Row>
+        <Modal show={this.state.showModal} onHide={this.close.bind(this)}>
+          <Modal.Header closeButton>
+            <Modal.Title>Thank you for your purchse!</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <h6>Your order has been placed.</h6>
+            <p>You will receive a confirmation email shortly.</p>
+          </Modal.Body>
+          <Modal.Footer>
+            <Col sx={6}>
+              <h6>Total: ${this.props.totalAmount}</h6>
+            </Col>
+            <Button onClick={this.close.bind(this)}>Close</Button>
+          </Modal.Footer>
+        </Modal>
       </Panel>
     )
   }
@@ -87,6 +117,8 @@ class Cart extends React.Component {
 function mapStateToProps(state){
   return{
     cart: state.cart.cart,
+    totalAmount: state.cart.totalAmount,
+    totalQuantity: state.cart.totalQuantity,
   }
 }
 
