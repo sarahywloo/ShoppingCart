@@ -54,7 +54,7 @@ class BooksForm extends React.Component {
             <FormControl
               type="text"
               placeholder="Enter Price"
-              ref="description"
+              ref="price"
             />
           </FormGroup>
           <Button onClick={this.handleSubmit.bind(this)} bsStyle='primary'>Save Book</Button>
