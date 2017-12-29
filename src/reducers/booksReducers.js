@@ -20,7 +20,7 @@ export function booksReducers(state={
 }, action) {
     switch(action.type) {
       case "GET_BOOKS":
-      return { ...state, books: [ ...state.books ]}
+      return { ...state, books: [ ...action.payload ]}
       break;
       case "POST_BOOK":
       /* let books = state.books.concat(action.payload);

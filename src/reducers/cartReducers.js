@@ -5,6 +5,14 @@
 // initial state needs to be set so we can add to the payload
 export function cartReducers(state={cart:[]}, action) {
   switch(action.type){
+    case "GET_CART":
+    return {
+      ...state,
+      cart: action.payload,
+      totalAmount: cartTotal(action.payload).amount,
+      totalQuantity: cartTotal(action.payload).quantity,
+    }
+    break;
     case "ADD_TO_CART":
     return {
       ...state,
@@ -14,25 +22,11 @@ export function cartReducers(state={cart:[]}, action) {
     }
     break;
     case "UPDATE_CART":
-    const currentBookToUpdate = [ ...state.cart ];
-    const indexToUpdate = currentBookToUpdate.findIndex(
-      function(book){
-        return book._id === action._id;
-      }
-    );
-    const newBookToUpdate = {
-      ...currentBookToUpdate[indexToUpdate],
-      quantity: currentBookToUpdate[indexToUpdate].quantity + action.unit
-    };
-    
-    let cartUpdate = [ ...currentBookToUpdate.slice(0, indexToUpdate), newBookToUpdate,
-    ...currentBookToUpdate.slice(indexToUpdate + 1)];
-
     return {
       ...state,
-      cart: cartUpdate,
-      totalAmount: cartTotal(cartUpdate).amount,
-      totalQuantity: cartTotal(cartUpdate).quantity,
+      cart: action.payload,
+      totalAmount: cartTotal(action.payload).amount,
+      totalQuantity: cartTotal(action.payload).quantity,
     }
     break;
     case "DELETE_CART_ITEM":

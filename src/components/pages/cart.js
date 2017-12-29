@@ -4,16 +4,20 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Modal, Panel, Row, Col, Button, ButtonGroup, Label } from 'react-bootstrap';
-import { deleteCartItem, updateCart } from '../../actions/cartActions';
+import { deleteCartItem, updateCart, getCart } from '../../actions/cartActions';
 
 class Cart extends React.Component {
 
+  componentDidMount(){
+    this.props.getCart();
+  }
+  
   onIncrement(_id){
-    this.props.updateCart(_id, 1);
+    this.props.updateCart(_id, 1, this.props.cart);
   }
   onDecrement(_id, quantity){
     if(quantity > 1){
-      this.props.updateCart(_id, -1);
+      this.props.updateCart(_id, -1, this.props.cart);
     }
   }
   constructor(){
@@ -126,6 +130,7 @@ function mapDispatchToProps(dispatch){
   return bindActionCreators({
     deleteCartItem:deleteCartItem,
     updateCart:updateCart,
+    getCart:getCart,
   }, dispatch)
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Cart);
