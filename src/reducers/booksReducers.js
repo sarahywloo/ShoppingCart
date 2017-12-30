@@ -25,7 +25,12 @@ export function booksReducers(state={
       case "POST_BOOK":
       /* let books = state.books.concat(action.payload);
       return { books }; */
-      return { books: [ ...state.books, ...action.payload ]}
+      return { ...state, books: [ ...state.books, ...action.payload ], msg: 'Saved! Click to continue', style: 'success'}
+      break;
+      return { ...state, msg:'Please, try again', style: 'danger'}
+      break;
+      case "RESET_BUTTON":
+      return { ...state, msg: null, style: 'primary'}
       break;
       case "DELETE_BOOK":
       // Creating a copy of the current array of books
