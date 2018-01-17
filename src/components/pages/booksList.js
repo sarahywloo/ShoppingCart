@@ -23,6 +23,7 @@ class BooksList extends React.Component {
           description={booksArr.description}
           images={booksArr.images}
           price={booksArr.price}
+          discount={booksArr.discount}
         />
       </Col>
     )

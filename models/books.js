@@ -6,7 +6,8 @@ var booksSchema =  mongoose.Schema({
   title: String,
   description: String,
   images: String,
-  price: Number
+  price: Number,
+  discount: Number,
 });
 
 var Books = mongoose.model('Books', booksSchema);

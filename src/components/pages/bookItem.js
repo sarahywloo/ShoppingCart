@@ -13,6 +13,7 @@ class BookItem extends React.Component {
       description: this.props.description,
       images: this.props.images,
       price: this.props.price,
+      discount: this.props.discount,
       quantity: 1,
     }]
     // Check if cart is empty
@@ -32,6 +33,9 @@ class BookItem extends React.Component {
       this.props.addToCart(book);
     }
   }
+
+  
+
   render() {
     return(
       <Well>
@@ -43,6 +47,7 @@ class BookItem extends React.Component {
             <h2>{this.props.title}</h2>
             <p>{this.props.description}</p>
             <h4>USD {this.props.price}</h4>
+            <h4 style={{ display: this.props.discount ? 'block' : 'none' }}>USD {this.props.discount}</h4>
             <Button onClick={this.handleCart.bind(this)} bsStyle='primary'>Add To Cart</Button>
           </Col>
         </Row>

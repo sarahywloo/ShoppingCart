@@ -55,7 +55,7 @@ export function cartTotal(payloadArr){
     return a + b;
   }, 0);
   return {
-    amount:totalAmount.toFixed(2),
-    quantity:totalQuantity,
+    amount: totalAmount.toFixed(2),
+    quantity: totalQuantity,
   }
 }

@@ -105,6 +105,7 @@ app.put('/books/:_id', function(req, res){
       description: book.description,
       image: book.image,
       price: book.price,
+      discount: book.discount,
     }
   };
   // when true it returns an updated document

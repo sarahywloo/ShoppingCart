@@ -12983,7 +12983,8 @@ class BooksForm extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component 
       title: Object(__WEBPACK_IMPORTED_MODULE_4_react_dom__["findDOMNode"])(this.refs.title).value,
       description: Object(__WEBPACK_IMPORTED_MODULE_4_react_dom__["findDOMNode"])(this.refs.description).value,
       images: Object(__WEBPACK_IMPORTED_MODULE_4_react_dom__["findDOMNode"])(this.refs.image).value,
-      price: Object(__WEBPACK_IMPORTED_MODULE_4_react_dom__["findDOMNode"])(this.refs.price).value
+      price: Object(__WEBPACK_IMPORTED_MODULE_4_react_dom__["findDOMNode"])(this.refs.price).value,
+      discount: Object(__WEBPACK_IMPORTED_MODULE_4_react_dom__["findDOMNode"])(this.refs.discount).value
     }];
     this.props.postBook(book);
   }
@@ -13006,6 +13007,7 @@ class BooksForm extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component 
     Object(__WEBPACK_IMPORTED_MODULE_4_react_dom__["findDOMNode"])(this.refs.title).value = '';
     Object(__WEBPACK_IMPORTED_MODULE_4_react_dom__["findDOMNode"])(this.refs.description).value = '';
     Object(__WEBPACK_IMPORTED_MODULE_4_react_dom__["findDOMNode"])(this.refs.price).value = '';
+    Object(__WEBPACK_IMPORTED_MODULE_4_react_dom__["findDOMNode"])(this.refs.discount).value = '';
     this.setState({ img: '' });
   }
 
@@ -13102,6 +13104,20 @@ class BooksForm extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component 
                 type: 'text',
                 placeholder: 'Enter Price',
                 ref: 'price'
+              })
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              __WEBPACK_IMPORTED_MODULE_1_react_bootstrap__["h" /* FormGroup */],
+              { controlId: 'discount' },
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                __WEBPACK_IMPORTED_MODULE_1_react_bootstrap__["e" /* ControlLabel */],
+                null,
+                'Discount'
+              ),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_bootstrap__["g" /* FormControl */], {
+                type: 'text',
+                placeholder: 'Enter Discount',
+                ref: 'discount'
               })
             ),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -36919,7 +36935,8 @@ class BooksList extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component 
           title: booksArr.title,
           description: booksArr.description,
           images: booksArr.images,
-          price: booksArr.price
+          price: booksArr.price,
+          discount: booksArr.discount
         })
       );
     });
@@ -48240,6 +48257,7 @@ class BookItem extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
       description: this.props.description,
       images: this.props.images,
       price: this.props.price,
+      discount: this.props.discount,
       quantity: 1
     }];
     // Check if cart is empty
@@ -48259,6 +48277,7 @@ class BookItem extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
       this.props.addToCart(book);
     }
   }
+
   render() {
     return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
       __WEBPACK_IMPORTED_MODULE_1_react_bootstrap__["t" /* Well */],
@@ -48289,6 +48308,12 @@ class BookItem extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
             null,
             'USD ',
             this.props.price
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'h4',
+            { style: { display: this.props.discount ? 'block' : 'none' } },
+            'USD ',
+            this.props.discount
           ),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             __WEBPACK_IMPORTED_MODULE_1_react_bootstrap__["b" /* Button */],

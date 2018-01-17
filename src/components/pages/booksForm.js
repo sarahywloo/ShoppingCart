@@ -33,7 +33,8 @@ class BooksForm extends React.Component {
       title: findDOMNode(this.refs.title).value,
       description: findDOMNode(this.refs.description).value,
       images:findDOMNode(this.refs.image).value,
-      price: findDOMNode(this.refs.price).value
+      price: findDOMNode(this.refs.price).value,
+      discount: findDOMNode(this.refs.discount).value,
     }];
     this.props.postBook(book);
   }
@@ -56,6 +57,7 @@ class BooksForm extends React.Component {
     findDOMNode(this.refs.title).value = '';
     findDOMNode(this.refs.description).value = '';
     findDOMNode(this.refs.price).value = '';
+    findDOMNode(this.refs.discount).value = '';
     this.setState({img:''});
   }
 
@@ -115,6 +117,14 @@ class BooksForm extends React.Component {
                   type="text"
                   placeholder="Enter Price"
                   ref="price"
+                />
+              </FormGroup>
+              <FormGroup controlId="discount">
+                <ControlLabel>Discount</ControlLabel>
+                <FormControl
+                  type="text"
+                  placeholder="Enter Discount"
+                  ref="discount"
                 />
               </FormGroup>
               <Button 
