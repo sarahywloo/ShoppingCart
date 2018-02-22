@@ -95,37 +95,41 @@ class BooksForm extends React.Component {
           </Col>
           <Col xs={12} sm={6}>
             <Panel>
-              <FormGroup controlId="title">
+              <FormGroup controlId="title" validationState={this.props.validation}>
                 <ControlLabel>Title</ControlLabel>
                 <FormControl
                   type="text"
                   placeholder="Enter Title"
                   ref="title"
                 />
+                <FormControl.Feedback/>
               </FormGroup>
-              <FormGroup controlId="description">
+              <FormGroup controlId="description" validationState={this.props.validation}>
                 <ControlLabel>Description</ControlLabel>
                 <FormControl
                   type="text"
                   placeholder="Enter Description"
                   ref="description"
                 />
+                <FormControl.Feedback/>
               </FormGroup>
-              <FormGroup controlId="price">
+              <FormGroup controlId="price" validationState={this.props.validation}>
                 <ControlLabel>Price</ControlLabel>
                 <FormControl
                   type="text"
                   placeholder="Enter Price"
                   ref="price"
                 />
+                <FormControl.Feedback/>
               </FormGroup>
-              <FormGroup controlId="discount">
+              <FormGroup controlId="discount" validationState={this.props.validation}>
                 <ControlLabel>Discount</ControlLabel>
                 <FormControl
                   type="text"
                   placeholder="Enter Discount"
                   ref="discount"
                 />
+                <FormControl.Feedback/>
               </FormGroup>
               <Button 
                 onClick={(!this.props.msg)?(this.handleSubmit.bind(this)):(this.resetForm.bind(this))}
@@ -142,7 +146,7 @@ class BooksForm extends React.Component {
                   {booksList}
                 </FormControl>
               </FormGroup>
-              <Button onClick={this.onDelete.bind(this)} bsStyle='danger' bsSize='small'>DELETE</Button>
+              <Button onClick={this.onDelete.bind(this)} bsStyle='danger'>DELETE</Button>
             </Panel>
           </Col>
         </Row>
@@ -156,6 +160,7 @@ function mapStateToProps(state){
     books: state.books.books,
     msg: state.books.msg,
     style: state.books.style,
+    validation: state.books.validation,
   }
 }
 function mapDispatchToProps(dispatch){

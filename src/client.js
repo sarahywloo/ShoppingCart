@@ -13,7 +13,7 @@ import reducers from './reducers/index';
 
 // Import actions
 import { addToCart } from './actions/cartActions';
-import * as bookActions from './actions/bookActions';
+// import * as bookActions from './actions/bookActions';
 
 
 // creating the store

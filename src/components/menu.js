@@ -22,8 +22,10 @@ class Menu extends React.Component {
             <NavItem eventKey={1} href="/admin">Admin</NavItem>
             <NavItem eventKey={2} href="/cart">Cart
               { (this.props.cartItemsNumber > 0) ? (
-              <Badge className="badge">{this.props.cartItemsNumber}</Badge>
-            ) : ('')}
+                <Badge className="badge">
+                {this.props.cartItemsNumber}
+                </Badge>):('')
+              }
             </NavItem>
           </Nav>
         </Navbar.Collapse>
