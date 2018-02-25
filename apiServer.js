@@ -22,7 +22,11 @@ app.use(cookieParser());
 
 // APIs
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/bookshop'); // bookshop is the name of the database
+// MONGO LAB
+mongoose.connect('mongodb://testUser:test@ds249418.mlab.com:49418/bookshop');
+// LOCAL DB
+// mongoose.connect('mongodb://localhost:27017/bookshop'); // bookshop is the name of the database
+
 
 // db will hold mongoDB connection
 var db = mongoose.connection;

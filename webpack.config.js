@@ -13,12 +13,16 @@ module.exports = {
     loaders: [
       {
         test:/\.js$/,
-        exclude:/node_modules/,
+        // exclude:/node_modules\/(?!(module1|module2)\/).*/,
+        // loader: 'echo-loader',
         loader: 'babel-loader',
         query: {
-          presets: ['react', 'es2017', 'stage-1']
+          presets: ['react', 'es2016', 'stage-1']
         }
       }
     ]
+  },
+  resolve: {
+    // root: __dirname + '/src'
   }
 }
