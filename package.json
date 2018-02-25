@@ -1,6 +1,9 @@
 {
   "name": "shoppingcart",
   "version": "0.0.0",
+  "enginess": {
+    "node": "8.9.0"
+  },
   "private": true,
   "scripts": {
     "build": "rimraf dist/ && babel ./ --out-dir dist/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log --copy-files",
