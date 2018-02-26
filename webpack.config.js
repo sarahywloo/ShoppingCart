@@ -17,7 +17,7 @@ module.exports = {
         // loader: 'echo-loader',
         loader: 'babel-loader',
         query: {
-          presets: ['react', 'es2016', 'stage-1']
+          presets: ['es2016', 'react', 'stage-1']
         }
       }
     ]

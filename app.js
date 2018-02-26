@@ -1,5 +1,6 @@
 require('babel-core/register')({
-  "presets":["es2016", "react", "stage-1"]
+  // "presets":["es2016", "react", "stage-1"].map(require.resolve)
+  "presets": ["env"]
 });
 
 var express = require('express');

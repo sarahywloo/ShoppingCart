@@ -9,13 +9,6 @@ import {Provider} from 'react-redux';
 import {renderToString} from 'react-dom/server';
 import {match, RouterContext} from 'react-router';
 
-// const axios = require('axios');
-// const React = require('react');
-// const {createStore} = require('react-redux');
-// const {Provider} = require('react-redux');
-// const {renderToString} = require('react-dom/server');
-// const {match, RouterContext} = require('react-router');
-
 import reducers from './src/reducers/index';
 import routes from './src/routes';
 
